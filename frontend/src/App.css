@@ -1,0 +1,203 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+@import '~leaflet/dist/leaflet.css';
+
+.leaflet-container {
+  height: 578px;
+  width: 390px;
+  margin: auto;
+  /* border: "2px solid black"; */
+  border-radius: 10px;
+
+}
+.page {
+  margin: auto;
+
+  /* * {
+    margin-top: 5px;
+  } */
+}
+
+.lotStatsContainer {
+  margin-top: 5px;
+}
+
+.col {
+  text-align: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #E0E0E0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3E3E3E;
+  /* overflow: hidden; */
+  /*-ms-overflow-style: none;*/  /* IE and Edge */
+  /*scrollbar-width: none;*/  /*Firefox*/
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  min-height: 90px;
+  background-color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #00796B; 
+}
+
+.searchbar {
+  min-height: 30px;
+  background-color: #C2CBC4;
+  border: 2px solid black;
+
+  .inside-searchbar {
+    width: 60%;
+    margin: auto;
+  }
+}
+
+/*
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 30%;
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+  width: 70%;
+  height: 600px;
+  background-color: #D3D3D3;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map .lot-marker {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00B8D9;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+}
+
+.card {
+  background-color: #FFFFFF;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  background-color: #00B8D9;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #00796B;
+}
+
+.analytics {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.analytics .chart {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 200px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background-color: #32CD32;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+*/
+
+footer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #4A4A4A;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+} 
