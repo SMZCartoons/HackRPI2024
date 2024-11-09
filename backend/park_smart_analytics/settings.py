@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "djongo",
+    "rest_framework",
+    "park_smart_analytics",
 ]
 
 MIDDLEWARE = [
@@ -77,13 +78,8 @@ WSGI_APPLICATION = "park_smart_analytics.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "djongo",
-        "NAME": "mydatabase",  # Replace with your MongoDB database name
-        "HOST": "localhost",  # Replace with your MongoDB host (e.g., MongoDB Atlas URI)
-        "PORT": 27017,  # Replace with your MongoDB port (default is 27017)
-        # 'USERNAME': 'myuser',         # Replace with your MongoDB username (if using authentication)
-        # 'PASSWORD': 'mypassword',     # Replace with your MongoDB password (if using authentication)
-        # 'AUTH_SOURCE': 'admin',       # Replace with the authentication database (default is 'admin')
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db/db.sqlite3",  # Or specify another path if preferred
     }
 }
 
@@ -127,3 +123,11 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "park_smart_analytics.User"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
