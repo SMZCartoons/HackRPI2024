@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-4-n(o2agk1&1p=8v*!czq=9q)zgl8w%$tu%+9p45_y@l%m=gbo"
+SECRET_KEY = os.environ.get("SECRET_KEY", os.urandom(32))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = []
 
@@ -75,11 +76,15 @@ WSGI_APPLICATION = "park_smart_analytics.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "djongo",
+        "NAME": "mydatabase",  # Replace with your MongoDB database name
+        "HOST": "localhost",  # Replace with your MongoDB host (e.g., MongoDB Atlas URI)
+        "PORT": 27017,  # Replace with your MongoDB port (default is 27017)
+        # 'USERNAME': 'myuser',         # Replace with your MongoDB username (if using authentication)
+        # 'PASSWORD': 'mypassword',     # Replace with your MongoDB password (if using authentication)
+        # 'AUTH_SOURCE': 'admin',       # Replace with the authentication database (default is 'admin')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
