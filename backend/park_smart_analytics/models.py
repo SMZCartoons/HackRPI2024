@@ -1,5 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 class UserManager(BaseUserManager):
@@ -18,7 +24,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=100)
     password = models.CharField(max_length=256)
     email = models.EmailField(unique=True)
@@ -39,3 +45,30 @@ class User(AbstractBaseUser):
 
     def __str__(self) -> str:
         return str(self.__dict__)
+
+
+class Lots(models.Model):
+    id = models.AutoField(primary_key=True)
+    lot_id = models.CharField(max_length=20, unique=True, editable=False)
+    name = models.CharField(max_length=100)
+    total = models.IntegerField()
+    available = models.IntegerField()
+    electrified = models.IntegerField()
+    electrified_available = models.IntegerField()
+    handicap = models.IntegerField()
+    handicap_available = models.IntegerField()
+
+    def __str__(self) -> str:
+        return str(self.__dict__)
+
+
+@receiver(pre_save, sender=Lots)
+def set_lot_id(sender, instance, **kwargs):
+    if not instance.lot_id:
+        # Get the last Lot entry's lot_id, extract the number and increment it.
+        last_lot = Lots.objects.all().order_by("-id").first()
+        if last_lot:
+            new_number = last_lot.id + 1
+        else:
+            new_number = 1  # If no Lots exist yet, start from 1
+        instance.lot_id = f"Lot{new_number}"

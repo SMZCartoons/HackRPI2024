@@ -1,8 +1,9 @@
-import re
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from requests import get
+from .models import Lots
+
 
 User = get_user_model()
 
@@ -29,20 +30,19 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         response = get(car_query, headers=headers)
         validated_data["car_length"] = 0.0
         validated_data["electrified"] = False
-        print(response.status_code)
         if response.status_code != 200:
             validated_data["make"] = ""
             validated_data["model"] = ""
             validated_data["year"] = 0
         else:
             response_json = response.json()
-            print(response_json)
             if response_json:
                 car = response_json["Trims"][0]
                 if car["model_length_mm"]:
                     validated_data["car_length"] = (
                         float(car["model_length_mm"]) * 0.03937008
                     )
+                # TODO: Improve to check for plugin in hybrid
                 if (
                     "electricity" == car["model_engine_type"].lower()
                     or "hybrid" in car["model_trim"].lower()
@@ -80,3 +80,54 @@ class UserLoginSerializer(serializers.Serializer):
             "refresh": str(refresh),
             "access": str(refresh.access_token),  # Accessing the access token correctly
         }
+
+
+class LotSerializer(serializers.ModelSerializer):
+    total_availability_ratio = serializers.SerializerMethodField()
+    electrified_availability_ratio = serializers.SerializerMethodField()
+    handicap_availability_ratio = serializers.SerializerMethodField()
+
+    id = serializers.CharField(source="lot_id")
+
+    class Meta:
+        model = Lots
+        fields = [
+            "id",
+            "name",
+            "total",
+            "available",
+            "electrified",
+            "electrified_available",
+            "handicap",
+            "handicap_available",
+            "total_availability_ratio",
+            "electrified_availability_ratio",
+            "handicap_availability_ratio",
+        ]
+
+    def get_total_availability_ratio(self, obj):
+        # Avoid division by zero and return None if total is 0
+        if obj.total > 0:
+            return obj.available / obj.total
+        return None  # or return 0 if you'd prefer to avoid None
+
+    def get_electrified_availability_ratio(self, obj):
+        # Avoid division by zero and return None if total is 0
+        if obj.electrified > 0:
+            return obj.electrified_available / obj.electrified
+        return None  # or return 0 if you'd prefer to avoid None
+
+    def get_handicap_availability_ratio(self, obj):
+        # Avoid division by zero and return None if total is 0
+        if obj.handicap > 0:
+            return obj.handicap_available / obj.handicap
+        return None  # or return 0 if you'd prefer to avoid None
+
+
+class LotsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lots
+        fields = [
+            "id",
+            "name",
+        ]

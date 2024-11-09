@@ -25,4 +25,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("register/", views.RegisterView.as_view(), name="register"),
     path("login/", views.LoginView.as_view(), name="login"),
+    path("lot/<str:lot_id>/", views.LotView.as_view(), name="lot_information"),
+    path("lots/", views.LotsView.as_view(), name="lots_information"),
 ]
