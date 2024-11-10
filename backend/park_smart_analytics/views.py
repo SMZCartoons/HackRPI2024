@@ -169,13 +169,13 @@ class Prediction(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request) -> Response:
-        with open("park_smart_analytics\\total_spots_model.pkl", "rb") as f:
+        with open("park_smart_analytics/total_spots_model.pkl", "rb") as f:
             total_spots = pickle.load(f)
 
-        with open("park_smart_analytics\\handi_spots_model.pkl", "rb") as f:
+        with open("park_smart_analytics/handi_spots_model.pkl", "rb") as f:
             handi_spots = pickle.load(f)
 
-        with open("park_smart_analytics\\electric_spots_model.pkl", "rb") as f:
+        with open("park_smart_analytics/electric_spots_model.pkl", "rb") as f:
             electric_spots = pickle.load(f)
         data = request.data
         req_time = str()
@@ -185,10 +185,11 @@ class Prediction(APIView):
             req_name = data.get("name", None)
 
         # if not req_time or not req_name:
-        req_min = int(req_time.strip()[2:])
-        req_time = int(req_time.strip()[0])
-        if req_min >= 30:
-            req_time = (req_time + 1) % 24
+        # req_min = int(req_time.strip()[2:])
+        req_time = req_time.split(":")[0]
+        req_time = int(req_time.strip())
+        # if req_min >= 30:
+        # req_time = (req_time + 1) % 24
 
         print(req_time)
 
