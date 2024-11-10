@@ -1,3 +1,4 @@
 *.pyc
 *.DS_Store
 backend/db
+frontend/package-lock.json
