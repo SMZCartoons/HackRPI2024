@@ -36,7 +36,8 @@ function ParkingMap() {
   const [parkingSpots, setParkingSpots] = useState([]);
   const [showCheckIn, setShowCheckIn] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [lotID, setLotID] = useState("-1");
+  const [lotFUCK, setlotFUCK] = useState("-1");
+  const [lotFUCKID, setlotFUCKID] = useState("-1");
 
   const coordinates = {
     latitude: 42.730026,
@@ -57,7 +58,20 @@ function ParkingMap() {
             `,
           },
         });
-        setParkingSpots(response.data.elements);
+        // setParkingSpots(response.data.elements);
+        const resp = response.data.elements
+        const response1 = await axios.get(process.env.REACT_APP_SERVER_URL + '/lots', 
+          { headers: { 'Content-Type': 'application/json' } }
+        );
+        const updatedResp = resp.map((item: any) => {
+          const match = response1.data.find((lot: any) => lot.name === item.tags.name);
+          if (match) {
+            return { ...item, backendId: match.id };
+          }
+          return item;
+        });
+        setParkingSpots(updatedResp);
+
       } catch (error) {
         console.error('Error fetching parking spots:', error);
       }
@@ -66,16 +80,19 @@ function ParkingMap() {
     fetchParkingSpots();
   }, []);
 
-  const handleSubmission = (num : string) => {
+  const handleSubmission = (num : string, backendId: string) => {
     setIsSubmitted(true);
-    setLotID(num);
+    setlotFUCK(num);
+    setlotFUCKID(backendId);
   };
 
   const handleSubmissionOut = () => {
     setIsSubmitted(false);
-    setLotID("-1");
+    setlotFUCK("-1");
+    setlotFUCKID("-1");
   };
 
+  // const [clickedOnMap, setClickedOnMap] = useState(null);
   function getParkingTags(spot: any): JSX.Element {
     
     if (!spot || !spot.tags) {
@@ -88,19 +105,29 @@ function ParkingMap() {
       .map(tag => <span key={tag}>{tag}: {spot.tags[tag]}<br /></span>);
   
     const title = spot.tags.name ? `${spot.tags.name}` : 'Parking Spot';
-  
+
+    // fetch(`${process.env.REACT_APP_SERVER_URL}/lot/${spot.backendId}`, {
+    //   method: 'GET',
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     setLotData(data);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching lot data:', error);
+    //   });
 
     return (
       <>
         <strong>{title}</strong><br />
         {validTags}
-        {!isSubmitted && <CheckIn onSubmit={handleSubmission} id={spot.id}/>}
+        {!isSubmitted && <CheckIn onSubmit={handleSubmission} Fuckname={spot.tags.name} backendId={spot.backendId}/>}
       </>
     );
   }
 
   //lot info
-  const [lotData, setLotData] = useState<any>({totalSpots: "-", capacity: "-", spotsAvailable: "-", chargersAvailable: "-", handicap: "-", lotAccess: "-"});
+  const [lotData, setLotData] = useState({total: "-", total_availability_ratio: "-", available: "-", electrified_available: "-", handicap_available: "-", electrified: "-"});
 
   const infoButtonClick = (e : any) => {
     e.preventDefault();
@@ -190,11 +217,11 @@ function ParkingMap() {
       <div className="searchbar">
         <div className="inside-searchbar">
           <Row>
-            <Dropdown autoClose="outside" style={{height: "20px"}}>
+            <Dropdown autoClose="outside" style={{height: "20px", marginRight: "10px"}}>
               <Dropdown.Toggle id="location-dropdown">
                 {selectedLoc.name}
               </Dropdown.Toggle>
-              <Dropdown.Menu>
+              <Dropdown.Menu style={{ zIndex: 99999 }}>
                 <Dropdown.Item>
                   <Form.Select aria-label="Lot selection" onChange={(e: any) => handleChangeLoc(e)}>
                     <option>Lots</option>
@@ -215,7 +242,7 @@ function ParkingMap() {
               </Dropdown.Menu>
             </Dropdown>
 
-            <Form.Select aria-label="Time selection" defaultValue={dateObj.getHours()%12 + ":" + dateObj.getMinutes() + ""} onChange={(e: any) => handleChangeTime(e)}>
+            <Form.Select aria-label="Time selection" defaultValue={dateObj.getHours()%12 + ":" + dateObj.getMinutes() + ""} onChange={(e: any) => handleChangeTime(e)} style={{marginRight: "10px"}}>
               <option>{(dateObj.getHours() === 12 ? 12 : dateObj.getHours()%12) + ":" + (dateObj.getMinutes() < 10 ? '0' + dateObj.getMinutes() : dateObj.getMinutes()) + (dateObj.getHours() <11 ? 'am' : 'pm')}</option>
               {timeChoices.map((time) => (
                 <option value={`${time}`}>{time}</option>
@@ -226,9 +253,9 @@ function ParkingMap() {
           </Row>
         </div>
       </div>
-      {isSubmitted && <CheckOut onSubmit={handleSubmissionOut} id={lotID}/>}
+      {isSubmitted && <CheckOut onSubmit={handleSubmissionOut} Fuckername={lotFUCK} backendId={lotFUCKID} />}
       {/* <MapContainer style={{ height: "578px", width: "390px" }} center={[42.730026,-73.680037]} zoom={15} scrollWheelZoom={true}> */}
-      <MapContainer center={[coordinates.latitude,coordinates.longitude]} zoom={15} scrollWheelZoom={true}>
+      <MapContainer center={[coordinates.latitude,coordinates.longitude]} zoom={15} scrollWheelZoom={true} style={{ marginTop: '25px' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -268,35 +295,36 @@ function ParkingMap() {
 
 
 
-      <Container fluid className="lotStatsContainer">
-        <div className="info-button-div"><Button variant="info" onClick={(e) => infoButtonClick(e)}>Lot Info</Button></div>
+      <Container fluid className="lotStatsContainer" style={{ marginTop: '25px' }}>
+        {/* <div className="info-button-div"><Button variant="info" onClick={(e) => infoButtonClick(e)}>Lot Info</Button></div> */}
+        {/* {total: "-", total_availability_ratio: "-", available: "-", electrified_available: "-", handicap_available: "-", electrified: "-"} */}
         <Row>
           <Col>
             <h5>Total Spots</h5>
-            <h2>{lotData.totalSpots}</h2>
+            <h2>{lotData.total}</h2>
           </Col>
           <Col>
             <h5>Capacity</h5>
-            <h2>{lotData.capacity}</h2>
+            <h2>{lotData.total_availability_ratio}</h2>
           </Col>
           <Col>
             <h5>Spots Available</h5>
-            <h2>{lotData.spotsAvailable}</h2>
+            <h2>{lotData.available}</h2>
           </Col>
         </Row>
 
         <Row id="bottom-row">
           <Col>
             <h5>Chargers Available</h5>
-            <h2>{lotData.chargersAvailable}</h2>
+            <h2>{lotData.electrified}</h2>
           </Col>
           <Col>
-            <h5>Handicap Spots Available</h5>
-            <h2>{lotData.handicap}</h2>
+            <h5>Charger Capacity</h5>
+            <h2>{lotData.electrified_available}</h2>
           </Col>
           <Col>
-            <h5>Parking Lot Access</h5>
-            <h2>{lotData.lotAccess}</h2>
+            <h5>Accessible Spots Remaining</h5>
+            <h2>{lotData.handicap_available}</h2>
           </Col>
         </Row>
       </Container>

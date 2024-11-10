@@ -3,11 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 interface CheckInProps {
-    onSubmit: (arg0:string) => void;
-    id: string;
+    onSubmit: (arg0:string, arg1:string) => void;
+    Fuckname: string;
+    backendId: string;
 }
 
-const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
+const CheckIn: React.FC<CheckInProps> = ({onSubmit, Fuckname, backendId}) => {
     const [handicapSpot, setHandicapSpot] = useState(false);
     const [usedCharger, setUsedCharger] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -18,14 +19,15 @@ const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
             usedCharger,
         };
         try {
-            const response = await fetch(process.env.REACT_APP_SERVER_URL + '/checkin/' + id, {
-                method: 'POST',
+            const response = await fetch(process.env.REACT_APP_SERVER_URL + '/checkin/' + backendId, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => {onSubmit(id); return response;})
+            .then(response => {onSubmit(Fuckname, backendId); return response;})
             .catch(error => {alert('An error occurred.');});
         } catch (error) {
             alert('An error occurred.');
@@ -51,7 +53,7 @@ const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
                                     checked={handicapSpot}
                                     onChange={(e) => setHandicapSpot(e.target.checked)}
                                 />
-                                Did you park in a Handicap Spot?
+                                <span style={{ marginLeft: '5px' }}>Did you park in a Handicap Spot?</span>
                             </label>
                         </div>
                         <div className="form-group">
@@ -61,7 +63,7 @@ const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
                                     checked={usedCharger}
                                     onChange={(e) => setUsedCharger(e.target.checked)}
                                 />
-                                If you have an electric vehicle, did you use a charger?
+                                <span style={{ marginLeft: '5px' }}>If you have an electric vehicle, did you use a charger?</span>
                             </label>
                         </div>
                     </form>

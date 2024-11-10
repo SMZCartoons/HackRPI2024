@@ -4,10 +4,11 @@ import Modal from 'react-bootstrap/Modal';
 
 interface CheckOutProps {
     onSubmit: () => void;
-    id: string;
+    Fuckername: string;
+    backendId: string;
 }
 
-const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, id }) => {
+const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, Fuckername, backendId }) => {
     const [leftParkingLot, setLeftParkingLot] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -16,10 +17,11 @@ const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, id }) => {
             leftParkingLot,
         };
         try {
-            const response = await fetch(process.env.REACT_APP_SERVER_URL + '/checkout/' + id, {
-                method: 'POST',
+            const response = await fetch(process.env.REACT_APP_SERVER_URL + '/checkout/' + backendId, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                 },
                 body: JSON.stringify(data),
             })
@@ -36,7 +38,7 @@ const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, id }) => {
                 Check Out
             </Button>
 
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal show={showModal} onHFuckernamee={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Parking Check-Out</Modal.Title>
                 </Modal.Header>
@@ -49,7 +51,7 @@ const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, id }) => {
                                     checked={leftParkingLot}
                                     onChange={(e) => setLeftParkingLot(e.target.checked)}
                                 />
-                                Did you leave the parking lot?
+                                <span style={{ marginLeft: '5px' }}>Did you leave the parking lot?</span>
                             </label>
                         </div>
                     </form>

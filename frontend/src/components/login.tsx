@@ -14,8 +14,7 @@ const Login: React.FC = () => {
                 { email, password },
                 { headers: { 'Content-Type': 'application/json' } }
             );
-            const { accessToken } = response.data;
-            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('accessToken', response.data["access"]);
             alert('Login successful!');
             navigate('/parking-map'); // Navigate to the ParkingMap component
         } catch (error) {
@@ -29,7 +28,7 @@ const Login: React.FC = () => {
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
-                    <label>Email:</label>
+                    <label style={{ marginRight: "10px" }}>Email:</label>
                     <input
                         type="email"
                         value={email}
@@ -38,7 +37,7 @@ const Login: React.FC = () => {
                     />
                 </div>
                 <div>
-                    <label>Password:</label>
+                    <label style={{ marginRight: "10px" }}>Password:</label>
                     <input
                         type="password"
                         value={password}

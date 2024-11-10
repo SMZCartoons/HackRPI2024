@@ -85,6 +85,7 @@ class CheckIn(APIView):
     permission_classes = [IsAuthenticated]
 
     def put(self, request, lot_id) -> Response:
+        print(lot_id)
         data = request.data  # This is already a parsed dictionary
         is_electric = False
         is_disability = False
@@ -163,30 +164,32 @@ class LeaderBoard(APIView):
 
         return Response(serialized_data)
 
+
 class Prediction(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request) -> Response:
-        with open('park_smart_analytics\\total_spots_model.pkl', 'rb') as f:
+        with open("park_smart_analytics\\total_spots_model.pkl", "rb") as f:
             total_spots = pickle.load(f)
 
-        with open('park_smart_analytics\\handi_spots_model.pkl', 'rb') as f:
+        with open("park_smart_analytics\\handi_spots_model.pkl", "rb") as f:
             handi_spots = pickle.load(f)
 
-        with open('park_smart_analytics\\electric_spots_model.pkl', 'rb') as f:
+        with open("park_smart_analytics\\electric_spots_model.pkl", "rb") as f:
             electric_spots = pickle.load(f)
-        data = request.data  
+        data = request.data
         req_time = str()
         req_name = str()
         if data:
-            req_time = data.get('time', None)
-            req_name = data.get('name', None)
+            req_time = data.get("time", None)
+            req_name = data.get("name", None)
 
-        # if not req_time or not req_name: 
+        # if not req_time or not req_name:
         req_min = int(req_time.strip()[2:])
         req_time = int(req_time.strip()[0])
-        if req_min>=30: req_time = (req_time+1) % 24
-        
+        if req_min >= 30:
+            req_time = (req_time + 1) % 24
+
         print(req_time)
 
         lots = Lots.objects.filter(name__exact=req_name.strip())
@@ -195,21 +198,25 @@ class Prediction(APIView):
         amnt_elect = 0
         lot_id = 0
         dt = datetime.now()
-        wkday = (dt.isoweekday()+1)%7
+        wkday = (dt.isoweekday() + 1) % 7
 
         for l in lots:
             amnt_total = l.total
             amnt_elect = l.electrified
             amnt_handy = l.handicap
             lot_id = l.id
-        
+
         spots = total_spots.predict(np.array([[lot_id, wkday, req_time, amnt_total]]))
         handy = handi_spots.predict(np.array([[lot_id, wkday, req_time, amnt_handy]]))
-        electric = electric_spots.predict(np.array([[lot_id, wkday, req_time, amnt_elect]]))
+        electric = electric_spots.predict(
+            np.array([[lot_id, wkday, req_time, amnt_elect]])
+        )
         s_p = int(spots[0])
         h_p = int(handy[0])
         e_p = int(electric[0])
-        return Response({"Total Spots": s_p, "Handicap Spots": h_p, "Electric Spots": e_p})
+        return Response(
+            {"Total Spots": s_p, "Handicap Spots": h_p, "Electric Spots": e_p}
+        )
 
         # print(lots.val)#, lots.get('electrified'), lots.get('handicap'))
 
@@ -218,11 +225,8 @@ class Prediction(APIView):
         # if data:
         #     is_disability = data.get("disability", False)
         #     is_electric = data.get("electric", False)
-        
-        
 
-        # get request data, with the time, 
-        
+        # get request data, with the time,
 
         # users = User.objects.all().order_by("-points")[:20]
         # user = request.user

@@ -43,7 +43,5 @@ urlpatterns = [
     path("checkin/<str:lot_id>", views.CheckIn.as_view(), name="checkin"),
     path("checkout/<str:lot_id>", views.CheckOut.as_view(), name="checkout"),
     path("leaderboard", views.LeaderBoard.as_view(), name="leaderboard"),
-
     path("prediction", views.Prediction.as_view(), name="prediction"),
-
 ]
