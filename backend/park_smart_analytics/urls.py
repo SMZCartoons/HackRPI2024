@@ -24,6 +24,7 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index, name="index"),
+
     path("register", views.RegisterView.as_view(), name="register"),
     path("login", views.LoginView.as_view(), name="login"),
     path("refresh", TokenRefreshView.as_view(), name="token_refresh"),
@@ -32,4 +33,5 @@ urlpatterns = [
     path("checkin/<str:lot_id>", views.CheckIn.as_view(), name="checkin"),
     path("checkout/<str:lot_id>", views.CheckOut.as_view(), name="checkout"),
     path("leaderboard", views.LeaderBoard.as_view(), name="leaderboard"),
+
 ]

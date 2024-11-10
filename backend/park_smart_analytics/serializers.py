@@ -3,6 +3,7 @@ from requests import get
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
+
 from .models import Lots
 
 User = get_user_model()
@@ -125,8 +126,43 @@ class LotSerializer(serializers.ModelSerializer):
 
 
 class LotsSerializer(serializers.ModelSerializer):
+    id = serializers.CharField(source="lot_id")
+
     class Meta:
         model = Lots
+        fields = [
+            "id",
+            "name",
+        ]
+
+
+class LotsSerializerAvaibility(serializers.ModelSerializer):
+    total_availability_ratio = serializers.SerializerMethodField()
+
+    id = serializers.CharField(source="lot_id")
+
+    class Meta:
+        model = Lots
+        fields = [
+            "id",
+            "name",
+            "total",
+            "available",
+            "total_availability_ratio",
+        ]
+
+    def get_total_availability_ratio(self, obj):
+        # Avoid division by zero and return None if total is 0
+        if obj.total > 0:
+            return obj.available / obj.total
+        return None  # or return 0 if you'd prefer to avoid None
+
+
+class BuildingSerializer(serializers.ModelSerializer):
+    id = serializers.CharField(source="building_id")
+
+    class Meta:
+        model = Buildings
         fields = [
             "id",
             "name",
