@@ -6,57 +6,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // import SearchBar from "./searchBar";
 import {Row, Col, Container, Button, Dropdown, Form} from 'react-bootstrap';
-
-
-// function ParkingMap() {
-//   const mapElement = useRef();
-//   const [mapLongitude, setMapLongitude] = useState(-121.91599);
-//   const [mapLatitude, setMapLatitude] = useState(37.36765);
-//   const [mapZoom, setMapZoom] = useState(13);
-//   const [map, setMap] = useState({});
-
-
-//   useEffect(() => {
-//     let map = tt.map({
-//       key: "<API key goes here>",
-//       container: mapElement.current,
-//       center: [mapLongitude, mapLatitude],
-//       zoom: mapZoom
-//     });
-//     setMap(map);
-//     return () => map.remove();
-//   }, []);
-
-//   const increaseZoom = () => {
-//     if (mapZoom < /*MAX_ZOOM*/ 20) {
-//       setMapZoom(mapZoom + 1);
-//     }
-//   };
-  
-//   const decreaseZoom = () => {
-//     if (mapZoom > 1) {
-//       setMapZoom(mapZoom - 1);
-//     }
-//   };
-  
-//   const updateMap = () => {
-//     map.setCenter([parseFloat(mapLongitude), parseFloat(mapLatitude)]);
-//     map.setZoom(mapZoom);
-//   };
-
-//   return (
-//     <>
-//       <input
-//         type="text"
-//         name="longitude"
-//         value={mapLongitude}
-//         onChange={(e) => setMapLongitude(e.target.value)}
-//       />
-
-//       {/* <div ref={mapElement} className="mapDiv"></div> */}
-//     </>
-//   );
-// }
+import CheckIn from "./checkin";
+import CheckOut from "./checkout";
 
 import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents, Polygon } from 'react-leaflet';
 // import 'leaflet/dist/leaflet.css';
@@ -83,6 +34,8 @@ function LocationMarker() {
 
 function ParkingMap() {
   const [parkingSpots, setParkingSpots] = useState([]);
+  const [showCheckIn, setShowCheckIn] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const coordinates = {
     latitude: 42.730026,
@@ -112,7 +65,16 @@ function ParkingMap() {
     fetchParkingSpots();
   }, []);
 
+  const handleSubmission = () => {
+    setIsSubmitted(true);
+  };
+
+  const handleSubmissionOut = () => {
+    setIsSubmitted(false);
+  };
+
   function getParkingTags(spot: any): JSX.Element {
+    
     if (!spot || !spot.tags) {
       return <></>;
     }
@@ -124,10 +86,12 @@ function ParkingMap() {
   
     const title = spot.tags.name ? `${spot.tags.name}` : 'Parking Spot';
   
+
     return (
       <>
         <strong>{title}</strong><br />
         {validTags}
+        {!isSubmitted && <CheckIn onSubmit={handleSubmission}/>}
       </>
     );
   }
@@ -150,6 +114,7 @@ function ParkingMap() {
   const [selectedTime, setSelectedTime] = useState(0)
   const [lots, setLots] = useState([{id: null, name: null}]);
   const [buildings, setBuildings] = useState([{id: null, name: null}]);
+  const [lotID, setLotID] = useState(-1);
 
   var timeChoices = []
   for(var i = 0; i < 24; i++) {
@@ -218,6 +183,7 @@ function ParkingMap() {
   return (
     <>
       {/* <SearchBar /> */}
+
       <div className="searchbar">
         <div className="inside-searchbar">
           <Row>
@@ -257,6 +223,7 @@ function ParkingMap() {
           </Row>
         </div>
       </div>
+      {isSubmitted && <CheckOut onSubmit={handleSubmissionOut}/>}
       {/* <MapContainer style={{ height: "578px", width: "390px" }} center={[42.730026,-73.680037]} zoom={15} scrollWheelZoom={true}> */}
       <MapContainer center={[coordinates.latitude,coordinates.longitude]} zoom={15} scrollWheelZoom={true}>
         <TileLayer
