@@ -87,15 +87,15 @@ class Buildings(models.Model):
         return str(self.__dict__)
 
 
-@receiver(pre_save, sender=Lots)
+@receiver(pre_save, sender=Buildings)
 def set_building_id(sender, instance, **kwargs):
     if not instance.building_id:
         # Get the last Lot entry's lot_id, extract the number and increment it.
-        last_lot = Lots.objects.all().order_by("-id").first()
-        if last_lot:
-            new_number = last_lot.id + 1
+        last_building = Buildings.objects.all().order_by("-id").first()
+        if last_building:
+            new_number = last_building.id + 1
         else:
-            new_number = 1  # If no Lots exist yet, start from 1
+            new_number = 1  # If no Buildings exist yet, start from 1
         instance.building_id = f"Lot{new_number}"
 
 
