@@ -325,7 +325,7 @@ function ParkingMap() {
           </Col>
           <Col>
             <h5>Capacity</h5>
-            <h2>{lotData.total_availability_ratio}</h2>
+            <h2>{lotData.total_availability_ratio}%</h2>
           </Col>
           <Col>
             <h5>Spots Available</h5>
@@ -340,7 +340,7 @@ function ParkingMap() {
           </Col>
           <Col>
             <h5>Charger Capacity</h5>
-            <h2>{lotData.electrified_available}</h2>
+            <h2>{lotData.electrified_available}%</h2>
           </Col>
           <Col>
             <h5>Accessible Spots Remaining</h5>
