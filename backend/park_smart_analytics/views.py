@@ -66,7 +66,7 @@ class BuildingsView(APIView):
     def get(self, _) -> Response:
         buildings = Buildings.objects.all()
         serializer = BuildingSerializer(buildings, many=True)
-        return Response(buildings)
+        return Response(serializer.data)
 
 
 class ClosestCurrentLotBuilding(APIView):
