@@ -72,3 +72,56 @@ def set_lot_id(sender, instance, **kwargs):
         else:
             new_number = 1  # If no Lots exist yet, start from 1
         instance.lot_id = f"Lot{new_number}"
+
+
+class Buildings(models.Model):
+    id = models.AutoField(primary_key=True)
+    building_id = models.CharField(max_length=20, unique=True, editable=False)
+    name = models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return str(self.__dict__)
+
+
+@receiver(pre_save, sender=Lots)
+def set_building_id(sender, instance, **kwargs):
+    if not instance.building_id:
+        # Get the last Lot entry's lot_id, extract the number and increment it.
+        last_lot = Lots.objects.all().order_by("-id").first()
+        if last_lot:
+            new_number = last_lot.id + 1
+        else:
+            new_number = 1  # If no Lots exist yet, start from 1
+        instance.building_id = f"Lot{new_number}"
+
+
+class BuildingLotDistance(models.Model):
+    building = models.ForeignKey(
+        Buildings, on_delete=models.CASCADE, related_name="lot_distances"
+    )
+    lot = models.ForeignKey(
+        Lots, on_delete=models.CASCADE, related_name="building_distances"
+    )
+    distance = models.FloatField()
+
+    class Meta:
+        unique_together = ("building", "lot")  # Ensures unique building-lot pairs
+
+    def __str__(self) -> str:
+        return str(self.__dict__)
+
+
+class LotLotDistance(models.Model):
+    lot1 = models.ForeignKey(
+        Lots, on_delete=models.CASCADE, related_name="lot1_distances"
+    )
+    lot2 = models.ForeignKey(
+        Lots, on_delete=models.CASCADE, related_name="lot2_distances"
+    )
+    distance = models.FloatField()
+
+    class Meta:
+        unique_together = ("lot1", "lot2")  # Ensures unique lot-lot pairs
+
+    def __str__(self) -> str:
+        return str(self.__dict__)
