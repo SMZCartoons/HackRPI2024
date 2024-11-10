@@ -57,6 +57,11 @@
 
 .lotStatsContainer {
   margin-top: 5px;
+
+  .info-button-div {
+    margin: auto;
+    width: 22%;
+  }
 }
 
 .col {
