@@ -1,9 +1,9 @@
-from rest_framework import serializers
-from django.contrib.auth import get_user_model, authenticate
-from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate, get_user_model
 from requests import get
-from .models import Lots
+from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken
 
+from .models import Lots
 
 User = get_user_model()
 
@@ -131,3 +131,22 @@ class LotsSerializer(serializers.ModelSerializer):
             "id",
             "name",
         ]
+
+
+class LeaderBoardSerializer(serializers.ModelSerializer):
+    rank = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = [
+            "rank",
+            "name",
+            "points",
+        ]
+
+    def get_rank(self, obj):
+        # Access the context to get the queryset's order.
+        # This example assumes the queryset is passed in the correct order.
+        queryset = self.context.get("queryset", [])
+        queryset = list(queryset) if queryset else []
+        return queryset.index(obj) + 1 if queryset else None
