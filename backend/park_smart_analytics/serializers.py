@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, get_user_model
 from requests import get
+from .models import Lots, Buildings
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
-
 
 from .models import Lots
 
@@ -24,33 +24,36 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        car_query = f"https://www.carqueryapi.com/api/0.3/?cmd=getTrims&year={validated_data["year"]}&make={validated_data["make"]}&model={validated_data["model"]}"
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
-        }
-        response = get(car_query, headers=headers)
         validated_data["car_length"] = 0.0
         validated_data["electrified"] = False
-        if response.status_code != 200:
-            validated_data["make"] = ""
-            validated_data["model"] = ""
-            validated_data["year"] = 0
-        else:
-            response_json = response.json()
-            if response_json:
-                car = response_json["Trims"][0]
-                if car["model_length_mm"]:
-                    validated_data["car_length"] = (
-                        float(car["model_length_mm"]) * 0.03937008
-                    )
-                # TODO: Improve to check for plugin in hybrid
-                if (
-                    "electricity" == car["model_engine_type"].lower()
-                    or "hybrid" in car["model_trim"].lower()
-                    or "electric" == car["model_engine_type"].lower()
-                ):
-                    validated_data["electrified"] = True
-            print(validated_data)
+        try:
+            car_query = f"https://www.carqueryapi.com/api/0.3/?cmd=getTrims&year={validated_data["year"]}&make={validated_data["make"]}&model={validated_data["model"]}"
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
+            }
+            response = get(car_query, headers=headers)
+
+            if response.status_code != 200:
+                validated_data["make"] = ""
+                validated_data["model"] = ""
+                validated_data["year"] = 0
+            else:
+                response_json = response.json()
+                if response_json:
+                    car = response_json["Trims"][0]
+                    if car["model_length_mm"]:
+                        validated_data["car_length"] = (
+                            float(car["model_length_mm"]) * 0.03937008
+                        )
+                    # TODO: Improve to check for plugin in hybrid
+                    if (
+                        "electricity" == car["model_engine_type"].lower()
+                        or "hybrid" in car["model_trim"].lower()
+                        or "electric" == car["model_engine_type"].lower()
+                    ):
+                        validated_data["electrified"] = True
+        except Exception as e:
+            print(e)
 
         user = User.objects.create_user(
             email=validated_data["email"],
@@ -109,19 +112,19 @@ class LotSerializer(serializers.ModelSerializer):
     def get_total_availability_ratio(self, obj):
         # Avoid division by zero and return None if total is 0
         if obj.total > 0:
-            return obj.available / obj.total
+            return int(obj.available / obj.total * 100)
         return None  # or return 0 if you'd prefer to avoid None
 
     def get_electrified_availability_ratio(self, obj):
         # Avoid division by zero and return None if total is 0
         if obj.electrified > 0:
-            return obj.electrified_available / obj.electrified
+            return int(obj.electrified_available / obj.electrified * 100)
         return None  # or return 0 if you'd prefer to avoid None
 
     def get_handicap_availability_ratio(self, obj):
         # Avoid division by zero and return None if total is 0
         if obj.handicap > 0:
-            return obj.handicap_available / obj.handicap
+            return int(obj.handicap_available / obj.handicap * 100)
         return None  # or return 0 if you'd prefer to avoid None
 
 
@@ -154,7 +157,7 @@ class LotsSerializerAvaibility(serializers.ModelSerializer):
     def get_total_availability_ratio(self, obj):
         # Avoid division by zero and return None if total is 0
         if obj.total > 0:
-            return obj.available / obj.total
+            return int(obj.available / obj.total * 100)
         return None  # or return 0 if you'd prefer to avoid None
 
 

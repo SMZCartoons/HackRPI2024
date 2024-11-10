@@ -2,19 +2,25 @@ from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from .models import Lots, Buildings
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import pickle
+import json
 
-from .models import Lots
 from .serializers import (
     LeaderBoardSerializer,
     LotSerializer,
     LotsSerializer,
+    LotsSerializerAvaibility,
+    BuildingSerializer,
     UserLoginSerializer,
     UserRegisterSerializer,
 )
+from .query import get_closest_available_lots_building, get_closest_available_lots_lot
+from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
@@ -48,6 +54,27 @@ class LotsView(APIView):
     def get(self, request) -> Response:
         lots = Lots.objects.all()
         serializer = LotsSerializer(lots, many=True)
+        return Response(serializer.data)
+
+
+class ClosestCurrentLotLot(APIView):
+    def get(self, _, lot_id) -> Response:
+        lots = get_closest_available_lots_lot(lot_id, 1)
+        serializer = LotsSerializerAvaibility(lots, many=True)
+        return Response(serializer.data)
+
+
+class BuildingsView(APIView):
+    def get(self, _) -> Response:
+        buildings = Buildings.objects.all()
+        serializer = BuildingSerializer(buildings, many=True)
+        return Response(serializer.data)
+
+
+class ClosestCurrentLotBuilding(APIView):
+    def get(self, _, building_id) -> Response:
+        lots = get_closest_available_lots_building(building_id, 1)
+        serializer = LotsSerializerAvaibility(lots, many=True)
         return Response(serializer.data)
 
 
@@ -132,3 +159,56 @@ class LeaderBoard(APIView):
             serialized_data.append(current_user_data)
 
         return Response(serialized_data)
+
+class Prediction(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request) -> Response:
+        with open('park_smart_analytics\\total_spots_model.pkl', 'rb') as f:
+            total_spots = pickle.load(f)
+
+        with open('park_smart_analytics\\handi_spots_model.pkl', 'rb') as f:
+            handi_spots = pickle.load(f)
+
+        with open('park_smart_analytics\\electric_spots_model.pkl', 'rb') as f:
+            electric_spots = pickle.load(f)
+        data = request.data  
+        req_time = str()
+        if data:
+            req_time = data.get('time', str())
+
+        req_min = int(req_time.strip()[2:])
+        req_time = int(req_time.strip()[0])
+        if req_min>=30: req_time = (req_time+1) % 24
+        
+        print(req_time)
+
+        
+        # is_electric = False
+        # is_disability = False
+        # if data:
+        #     is_disability = data.get("disability", False)
+        #     is_electric = data.get("electric", False)
+        
+        
+
+        # get request data, with the time, 
+        
+
+        # users = User.objects.all().order_by("-points")[:20]
+        # user = request.user
+
+        # serializer = LeaderBoardSerializer(
+        #     users, many=True, context={"queryset": users}
+        # )
+
+        # serialized_data = list(serializer.data)
+
+        # if user not in users:
+        #     user_rank = users.filter(points__gt=user.points).count() + 1
+        #     current_user_data = LeaderBoardSerializer(
+        #         user, context={"rank": user_rank}
+        #     ).data
+        #     serialized_data.append(current_user_data)
+
+        return Response(None)

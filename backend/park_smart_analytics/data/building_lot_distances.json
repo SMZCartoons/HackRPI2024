@@ -1,0 +1,1575 @@
+[
+  {
+    "building_name": "parking garage",
+    "lot_name": "academy hall lot",
+    "distance": 178.4067
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "as&rc lot",
+    "distance": 441.5686
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "west hall lot",
+    "distance": 438.808
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "g lot",
+    "distance": 523.4287
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "j lot",
+    "distance": 613.5658
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "north lot",
+    "distance": 487.0978
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "sherry road lot",
+    "distance": 640.0879
+  },
+  {
+    "building_name": "parking garage",
+    "lot_name": "admissions visitors lot",
+    "distance": 613.3078
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "academy hall lot",
+    "distance": 609.3906
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "as&rc lot",
+    "distance": 616.051
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "west hall lot",
+    "distance": 351.6578
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "g lot",
+    "distance": 547.7242
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "j lot",
+    "distance": 70.1743
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "north lot",
+    "distance": 165.6356
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "sherry road lot",
+    "distance": 428.3379
+  },
+  {
+    "building_name": "heffner alumni house",
+    "lot_name": "admissions visitors lot",
+    "distance": 335.6666
+  },
+  {
+    "building_name": "blitman",
+    "lot_name": "academy hall lot",
+    "distance": 662.7817
+  },
+  {
+    "building_name": "blitman",
+    "lot_name": "west hall lot",
+    "distance": 308.3079
+  },
+  { "building_name": "blitman", "lot_name": "j lot", "distance": 594.0056 },
+  { "building_name": "blitman", "lot_name": "north lot", "distance": 507.8256 },
+  {
+    "building_name": "winslow",
+    "lot_name": "academy hall lot",
+    "distance": 553.5498
+  },
+  {
+    "building_name": "winslow",
+    "lot_name": "west hall lot",
+    "distance": 201.1432
+  },
+  { "building_name": "winslow", "lot_name": "j lot", "distance": 493.2737 },
+  { "building_name": "winslow", "lot_name": "north lot", "distance": 395.743 },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "academy hall lot",
+    "distance": 454.6452
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "as&rc lot",
+    "distance": 640.8707
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "west hall lot",
+    "distance": 102.9977
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "g lot",
+    "distance": 658.5025
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "j lot",
+    "distance": 377.2844
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "north lot",
+    "distance": 265.853
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "sherry road lot",
+    "distance": 671.2866
+  },
+  {
+    "building_name": "walker laboratory",
+    "lot_name": "admissions visitors lot",
+    "distance": 601.2648
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "academy hall lot",
+    "distance": 364.6406
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "as&rc lot",
+    "distance": 421.3952
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "west hall lot",
+    "distance": 283.3539
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "g lot",
+    "distance": 395.2071
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "j lot",
+    "distance": 246.6632
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "north lot",
+    "distance": 147.8197
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "sherry road lot",
+    "distance": 372.0957
+  },
+  {
+    "building_name": "'87 gymnasium",
+    "lot_name": "admissions visitors lot",
+    "distance": 300.5608
+  },
+  {
+    "building_name": "cary hall",
+    "lot_name": "academy hall lot",
+    "distance": 427.6239
+  },
+  {
+    "building_name": "cary hall",
+    "lot_name": "as&rc lot",
+    "distance": 205.7516
+  },
+  {
+    "building_name": "cary hall",
+    "lot_name": "west hall lot",
+    "distance": 686.0005
+  },
+  { "building_name": "cary hall", "lot_name": "g lot", "distance": 78.2854 },
+  { "building_name": "cary hall", "lot_name": "j lot", "distance": 570.0376 },
+  {
+    "building_name": "cary hall",
+    "lot_name": "north lot",
+    "distance": 531.6695
+  },
+  {
+    "building_name": "cary hall",
+    "lot_name": "sherry road lot",
+    "distance": 131.8205
+  },
+  {
+    "building_name": "cary hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 203.2816
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "academy hall lot",
+    "distance": 422.7975
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "as&rc lot",
+    "distance": 583.5512
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "west hall lot",
+    "distance": 95.8365
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "g lot",
+    "distance": 591.0035
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "j lot",
+    "distance": 312.4049
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "north lot",
+    "distance": 193.1645
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "sherry road lot",
+    "distance": 593.7189
+  },
+  {
+    "building_name": "russell sage laboratory",
+    "lot_name": "admissions visitors lot",
+    "distance": 522.1504
+  },
+  {
+    "building_name": "north hall",
+    "lot_name": "academy hall lot",
+    "distance": 432.5921
+  },
+  {
+    "building_name": "north hall",
+    "lot_name": "as&rc lot",
+    "distance": 522.7749
+  },
+  {
+    "building_name": "north hall",
+    "lot_name": "west hall lot",
+    "distance": 186.7189
+  },
+  { "building_name": "north hall", "lot_name": "g lot", "distance": 500.3436 },
+  { "building_name": "north hall", "lot_name": "j lot", "distance": 192.7312 },
+  {
+    "building_name": "north hall",
+    "lot_name": "north lot",
+    "distance": 66.283
+  },
+  {
+    "building_name": "north hall",
+    "lot_name": "sherry road lot",
+    "distance": 465.6726
+  },
+  {
+    "building_name": "north hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 386.3871
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "academy hall lot",
+    "distance": 397.2272
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "as&rc lot",
+    "distance": 603.1335
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "west hall lot",
+    "distance": 174.8269
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "g lot",
+    "distance": 634.1225
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "j lot",
+    "distance": 429.2251
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "north lot",
+    "distance": 308.8875
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "sherry road lot",
+    "distance": 669.1123
+  },
+  {
+    "building_name": "amos eaton hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 606.6616
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "academy hall lot",
+    "distance": 324.1193
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "as&rc lot",
+    "distance": 328.0597
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "west hall lot",
+    "distance": 382.1961
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "g lot",
+    "distance": 293.8148
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "j lot",
+    "distance": 320.3527
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "north lot",
+    "distance": 242.9013
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "sherry road lot",
+    "distance": 285.8546
+  },
+  {
+    "building_name": "quadrangle complex",
+    "lot_name": "admissions visitors lot",
+    "distance": 228.6171
+  },
+  {
+    "building_name": "pittsburgh building",
+    "lot_name": "academy hall lot",
+    "distance": 520.668
+  },
+  {
+    "building_name": "pittsburgh building",
+    "lot_name": "west hall lot",
+    "distance": 117.9444
+  },
+  {
+    "building_name": "pittsburgh building",
+    "lot_name": "j lot",
+    "distance": 410.1265
+  },
+  {
+    "building_name": "pittsburgh building",
+    "lot_name": "north lot",
+    "distance": 311.7022
+  },
+  {
+    "building_name": "pittsburgh building",
+    "lot_name": "admissions visitors lot",
+    "distance": 665.9714
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "academy hall lot",
+    "distance": 299.7998
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "as&rc lot",
+    "distance": 554.1721
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "west hall lot",
+    "distance": 363.6254
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "g lot",
+    "distance": 621.6392
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "j lot",
+    "distance": 589.5835
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "north lot",
+    "distance": 462.4542
+  },
+  {
+    "building_name": "materials research center",
+    "lot_name": "admissions visitors lot",
+    "distance": 669.9728
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "academy hall lot",
+    "distance": 316.6095
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "as&rc lot",
+    "distance": 495.5209
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "west hall lot",
+    "distance": 202.7227
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "g lot",
+    "distance": 519.4814
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "j lot",
+    "distance": 375.5592
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "north lot",
+    "distance": 247.9164
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "sherry road lot",
+    "distance": 554.6307
+  },
+  {
+    "building_name": "greene building",
+    "lot_name": "admissions visitors lot",
+    "distance": 495.4217
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "academy hall lot",
+    "distance": 404.8874
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "as&rc lot",
+    "distance": 528.7137
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "west hall lot",
+    "distance": 148.4183
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "g lot",
+    "distance": 522.0517
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "j lot",
+    "distance": 250.4187
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "north lot",
+    "distance": 123.205
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "sherry road lot",
+    "distance": 510.0603
+  },
+  {
+    "building_name": "troy building",
+    "lot_name": "admissions visitors lot",
+    "distance": 436.1425
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "academy hall lot",
+    "distance": 216.4725
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "as&rc lot",
+    "distance": 252.6896
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "west hall lot",
+    "distance": 420.6691
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "g lot",
+    "distance": 260.8987
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "j lot",
+    "distance": 419.7465
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "north lot",
+    "distance": 324.6551
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "sherry road lot",
+    "distance": 327.5621
+  },
+  {
+    "building_name": "rpi playhouse",
+    "lot_name": "admissions visitors lot",
+    "distance": 297.4923
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "academy hall lot",
+    "distance": 254.4862
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "as&rc lot",
+    "distance": 154.6511
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "west hall lot",
+    "distance": 534.6406
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "g lot",
+    "distance": 142.355
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "j lot",
+    "distance": 491.1941
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "north lot",
+    "distance": 416.0605
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "sherry road lot",
+    "distance": 249.8371
+  },
+  {
+    "building_name": "mueller center",
+    "lot_name": "admissions visitors lot",
+    "distance": 252.9309
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "academy hall lot",
+    "distance": 430.3139
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "as&rc lot",
+    "distance": 174.9347
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "g lot",
+    "distance": 83.1165
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "j lot",
+    "distance": 653.1376
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "north lot",
+    "distance": 607.2249
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "sherry road lot",
+    "distance": 214.8504
+  },
+  {
+    "building_name": "commons dining hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 290.994
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "academy hall lot",
+    "distance": 351.5591
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "as&rc lot",
+    "distance": 268.5148
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "west hall lot",
+    "distance": 487.5828
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "g lot",
+    "distance": 202.3333
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "j lot",
+    "distance": 387.2572
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "north lot",
+    "distance": 334.0946
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "sherry road lot",
+    "distance": 185.2201
+  },
+  {
+    "building_name": "rensselaer student union",
+    "lot_name": "admissions visitors lot",
+    "distance": 149.015
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "academy hall lot",
+    "distance": 301.271
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "as&rc lot",
+    "distance": 178.3297
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "west hall lot",
+    "distance": 543.3777
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "g lot",
+    "distance": 127.2263
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "j lot",
+    "distance": 473.462
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "north lot",
+    "distance": 409.2837
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "sherry road lot",
+    "distance": 203.1724
+  },
+  {
+    "building_name": "visitors parking",
+    "lot_name": "admissions visitors lot",
+    "distance": 207.0414
+  },
+  {
+    "building_name": "j building",
+    "lot_name": "academy hall lot",
+    "distance": 632.2517
+  },
+  {
+    "building_name": "j building",
+    "lot_name": "as&rc lot",
+    "distance": 697.0357
+  },
+  {
+    "building_name": "j building",
+    "lot_name": "west hall lot",
+    "distance": 241.0629
+  },
+  { "building_name": "j building", "lot_name": "g lot", "distance": 650.3767 },
+  { "building_name": "j building", "lot_name": "j lot", "distance": 80.9087 },
+  {
+    "building_name": "j building",
+    "lot_name": "north lot",
+    "distance": 136.8294
+  },
+  {
+    "building_name": "j building",
+    "lot_name": "sherry road lot",
+    "distance": 560.3186
+  },
+  {
+    "building_name": "j building",
+    "lot_name": "admissions visitors lot",
+    "distance": 468.788
+  },
+  {
+    "building_name": "west hall",
+    "lot_name": "academy hall lot",
+    "distance": 558.6431
+  },
+  {
+    "building_name": "west hall",
+    "lot_name": "west hall lot",
+    "distance": 84.359
+  },
+  { "building_name": "west hall", "lot_name": "j lot", "distance": 369.0699 },
+  {
+    "building_name": "west hall",
+    "lot_name": "north lot",
+    "distance": 283.7918
+  },
+  {
+    "building_name": "west hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 655.8864
+  },
+  {
+    "building_name": "hall hall",
+    "lot_name": "academy hall lot",
+    "distance": 381.1535
+  },
+  {
+    "building_name": "hall hall",
+    "lot_name": "as&rc lot",
+    "distance": 158.1746
+  },
+  {
+    "building_name": "hall hall",
+    "lot_name": "west hall lot",
+    "distance": 667.6155
+  },
+  { "building_name": "hall hall", "lot_name": "g lot", "distance": 31.0664 },
+  { "building_name": "hall hall", "lot_name": "j lot", "distance": 572.7737 },
+  {
+    "building_name": "hall hall",
+    "lot_name": "north lot",
+    "distance": 523.7437
+  },
+  {
+    "building_name": "hall hall",
+    "lot_name": "sherry road lot",
+    "distance": 170.1968
+  },
+  {
+    "building_name": "hall hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 228.1545
+  },
+  {
+    "building_name": "barton hall",
+    "lot_name": "academy hall lot",
+    "distance": 474.4366
+  },
+  {
+    "building_name": "barton hall",
+    "lot_name": "as&rc lot",
+    "distance": 246.8862
+  },
+  { "building_name": "barton hall", "lot_name": "g lot", "distance": 121.3317 },
+  { "building_name": "barton hall", "lot_name": "j lot", "distance": 587.2823 },
+  {
+    "building_name": "barton hall",
+    "lot_name": "north lot",
+    "distance": 558.0056
+  },
+  {
+    "building_name": "barton hall",
+    "lot_name": "sherry road lot",
+    "distance": 119.4388
+  },
+  {
+    "building_name": "barton hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 204.8626
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "academy hall lot",
+    "distance": 243.9224
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "as&rc lot",
+    "distance": 407.0266
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "west hall lot",
+    "distance": 279.2133
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "g lot",
+    "distance": 433.6502
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "j lot",
+    "distance": 390.955
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "north lot",
+    "distance": 266.8837
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "sherry road lot",
+    "distance": 483.9331
+  },
+  {
+    "building_name": "j erik jonsson engineering center",
+    "lot_name": "admissions visitors lot",
+    "distance": 433.6429
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "academy hall lot",
+    "distance": 340.3428
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "as&rc lot",
+    "distance": 571.0371
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "west hall lot",
+    "distance": 263.1562
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "g lot",
+    "distance": 619.2035
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "j lot",
+    "distance": 500.9715
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "north lot",
+    "distance": 375.8153
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "sherry road lot",
+    "distance": 680.9079
+  },
+  {
+    "building_name": "folsom library",
+    "lot_name": "admissions visitors lot",
+    "distance": 628.2933
+  },
+  {
+    "building_name": "e complex",
+    "lot_name": "academy hall lot",
+    "distance": 430.19
+  },
+  {
+    "building_name": "e complex",
+    "lot_name": "as&rc lot",
+    "distance": 493.3708
+  },
+  {
+    "building_name": "e complex",
+    "lot_name": "west hall lot",
+    "distance": 238.4168
+  },
+  { "building_name": "e complex", "lot_name": "g lot", "distance": 461.014 },
+  { "building_name": "e complex", "lot_name": "j lot", "distance": 180.2125 },
+  {
+    "building_name": "e complex",
+    "lot_name": "north lot",
+    "distance": 75.1919
+  },
+  {
+    "building_name": "e complex",
+    "lot_name": "sherry road lot",
+    "distance": 415.4471
+  },
+  {
+    "building_name": "e complex",
+    "lot_name": "admissions visitors lot",
+    "distance": 334.745
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "academy hall lot",
+    "distance": 380.9382
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "as&rc lot",
+    "distance": 476.3879
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "west hall lot",
+    "distance": 211.7088
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "g lot",
+    "distance": 461.4386
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "j lot",
+    "distance": 238.034
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "north lot",
+    "distance": 115.7166
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "sherry road lot",
+    "distance": 444.5975
+  },
+  {
+    "building_name": "ricketts building",
+    "lot_name": "admissions visitors lot",
+    "distance": 371.4693
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "academy hall lot",
+    "distance": 202.4593
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "as&rc lot",
+    "distance": 322.4512
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "west hall lot",
+    "distance": 353.0351
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "g lot",
+    "distance": 346.269
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "j lot",
+    "distance": 407.4775
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "north lot",
+    "distance": 295.0051
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "sherry road lot",
+    "distance": 408.8137
+  },
+  {
+    "building_name": "darrin communications center",
+    "lot_name": "admissions visitors lot",
+    "distance": 368.5005
+  },
+  {
+    "building_name": "lally hall",
+    "lot_name": "academy hall lot",
+    "distance": 352.2272
+  },
+  {
+    "building_name": "lally hall",
+    "lot_name": "as&rc lot",
+    "distance": 548.2773
+  },
+  {
+    "building_name": "lally hall",
+    "lot_name": "west hall lot",
+    "distance": 183.8862
+  },
+  { "building_name": "lally hall", "lot_name": "g lot", "distance": 577.0439 },
+  { "building_name": "lally hall", "lot_name": "j lot", "distance": 403.1692 },
+  {
+    "building_name": "lally hall",
+    "lot_name": "north lot",
+    "distance": 277.9724
+  },
+  {
+    "building_name": "lally hall",
+    "lot_name": "sherry road lot",
+    "distance": 613.4726
+  },
+  {
+    "building_name": "lally hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 552.9204
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "academy hall lot",
+    "distance": 195.5561
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "as&rc lot",
+    "distance": 282.9278
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "west hall lot",
+    "distance": 389.9096
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "g lot",
+    "distance": 304.0173
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "j lot",
+    "distance": 420.1151
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "north lot",
+    "distance": 314.9577
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "sherry road lot",
+    "distance": 373.4432
+  },
+  {
+    "building_name": "low center for industrial innovation",
+    "lot_name": "admissions visitors lot",
+    "distance": 339.3077
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "academy hall lot",
+    "distance": 277.0384
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "as&rc lot",
+    "distance": 500.2042
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "west hall lot",
+    "distance": 276.3829
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "g lot",
+    "distance": 547.7879
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "j lot",
+    "distance": 476.3772
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "north lot",
+    "distance": 348.7585
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "sherry road lot",
+    "distance": 614.4147
+  },
+  {
+    "building_name": "voorhees computing center",
+    "lot_name": "admissions visitors lot",
+    "distance": 565.6226
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "academy hall lot",
+    "distance": 108.353
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "as&rc lot",
+    "distance": 243.1416
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "west hall lot",
+    "distance": 452.8732
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "g lot",
+    "distance": 301.4402
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "j lot",
+    "distance": 508.7972
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "north lot",
+    "distance": 400.4676
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "sherry road lot",
+    "distance": 415.7448
+  },
+  {
+    "building_name": "center for biotechnology and interdisciplinary studies",
+    "lot_name": "admissions visitors lot",
+    "distance": 398.7254
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "academy hall lot",
+    "distance": 194.6806
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "as&rc lot",
+    "distance": 95.6788
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "west hall lot",
+    "distance": 578.0979
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "g lot",
+    "distance": 164.3421
+  },
+  { "building_name": "robison pool", "lot_name": "j lot", "distance": 570.585 },
+  {
+    "building_name": "robison pool",
+    "lot_name": "north lot",
+    "distance": 484.2516
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "sherry road lot",
+    "distance": 325.7879
+  },
+  {
+    "building_name": "robison pool",
+    "lot_name": "admissions visitors lot",
+    "distance": 341.6104
+  },
+  {
+    "building_name": "h building",
+    "lot_name": "academy hall lot",
+    "distance": 570.0912
+  },
+  {
+    "building_name": "h building",
+    "lot_name": "as&rc lot",
+    "distance": 618.1505
+  },
+  {
+    "building_name": "h building",
+    "lot_name": "west hall lot",
+    "distance": 255.4171
+  },
+  { "building_name": "h building", "lot_name": "g lot", "distance": 568.2687 },
+  { "building_name": "h building", "lot_name": "j lot", "distance": 44.7282 },
+  {
+    "building_name": "h building",
+    "lot_name": "north lot",
+    "distance": 83.0525
+  },
+  {
+    "building_name": "h building",
+    "lot_name": "sherry road lot",
+    "distance": 479.3884
+  },
+  {
+    "building_name": "h building",
+    "lot_name": "admissions visitors lot",
+    "distance": 388.4899
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "academy hall lot",
+    "distance": 169.2143
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "as&rc lot",
+    "distance": 387.2983
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "west hall lot",
+    "distance": 353.5758
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "g lot",
+    "distance": 442.6094
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "j lot",
+    "distance": 490.2377
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "north lot",
+    "distance": 365.8919
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "sherry road lot",
+    "distance": 530.9229
+  },
+  {
+    "building_name": "jonsson-rowland science center",
+    "lot_name": "admissions visitors lot",
+    "distance": 494.6864
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "academy hall lot",
+    "distance": 233.55
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "as&rc lot",
+    "distance": 118.5517
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "west hall lot",
+    "distance": 559.6497
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "g lot",
+    "distance": 135.9707
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "j lot",
+    "distance": 528.9086
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "north lot",
+    "distance": 450.0181
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "sherry road lot",
+    "distance": 275.3821
+  },
+  {
+    "building_name": "alumni sports and recreation center",
+    "lot_name": "admissions visitors lot",
+    "distance": 287.4594
+  },
+  {
+    "building_name": "nugent hall",
+    "lot_name": "academy hall lot",
+    "distance": 362.9279
+  },
+  {
+    "building_name": "nugent hall",
+    "lot_name": "as&rc lot",
+    "distance": 98.3689
+  },
+  { "building_name": "nugent hall", "lot_name": "g lot", "distance": 116.0961 },
+  { "building_name": "nugent hall", "lot_name": "j lot", "distance": 697.9949 },
+  {
+    "building_name": "nugent hall",
+    "lot_name": "north lot",
+    "distance": 633.9466
+  },
+  {
+    "building_name": "nugent hall",
+    "lot_name": "sherry road lot",
+    "distance": 307.8155
+  },
+  {
+    "building_name": "nugent hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 370.4431
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "academy hall lot",
+    "distance": 59.0624
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "as&rc lot",
+    "distance": 206.5354
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "west hall lot",
+    "distance": 549.0762
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "g lot",
+    "distance": 304.3304
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "j lot",
+    "distance": 612.4623
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "north lot",
+    "distance": 505.1988
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "sherry road lot",
+    "distance": 459.991
+  },
+  {
+    "building_name": "academy hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 462.0882
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "academy hall lot",
+    "distance": 172.7585
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "as&rc lot",
+    "distance": 427.371
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "west hall lot",
+    "distance": 401.5647
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "g lot",
+    "distance": 500.6236
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "j lot",
+    "distance": 569.5353
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "north lot",
+    "distance": 443.2335
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "sherry road lot",
+    "distance": 607.2044
+  },
+  {
+    "building_name": "cogswell laboratory",
+    "lot_name": "admissions visitors lot",
+    "distance": 576.5048
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "academy hall lot",
+    "distance": 452.1803
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "as&rc lot",
+    "distance": 660.8349
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "west hall lot",
+    "distance": 167.8316
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "g lot",
+    "distance": 690.6354
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "j lot",
+    "distance": 446.6628
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "north lot",
+    "distance": 333.676
+  },
+  {
+    "building_name": "carnegie building",
+    "lot_name": "admissions visitors lot",
+    "distance": 654.3262
+  },
+  {
+    "building_name": "admissions",
+    "lot_name": "academy hall lot",
+    "distance": 475.9728
+  },
+  {
+    "building_name": "admissions",
+    "lot_name": "as&rc lot",
+    "distance": 352.0068
+  },
+  {
+    "building_name": "admissions",
+    "lot_name": "west hall lot",
+    "distance": 552.3882
+  },
+  { "building_name": "admissions", "lot_name": "g lot", "distance": 247.678 },
+  { "building_name": "admissions", "lot_name": "j lot", "distance": 381.6763 },
+  {
+    "building_name": "admissions",
+    "lot_name": "north lot",
+    "distance": 370.3519
+  },
+  {
+    "building_name": "admissions",
+    "lot_name": "sherry road lot",
+    "distance": 105.0374
+  },
+  {
+    "building_name": "admissions",
+    "lot_name": "admissions visitors lot",
+    "distance": 24.5928
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "academy hall lot",
+    "distance": 279.598
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "as&rc lot",
+    "distance": 206.2167
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "west hall lot",
+    "distance": 496.5423
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "g lot",
+    "distance": 173.7772
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "j lot",
+    "distance": 439.6256
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "north lot",
+    "distance": 368.0078
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "sherry road lot",
+    "distance": 233.0944
+  },
+  {
+    "building_name": "rpi public safety",
+    "lot_name": "admissions visitors lot",
+    "distance": 218.6211
+  },
+  {
+    "building_name": "experimental media and performing arts center (empac)",
+    "lot_name": "academy hall lot",
+    "distance": 394.3063
+  },
+  {
+    "building_name": "experimental media and performing arts center (empac)",
+    "lot_name": "as&rc lot",
+    "distance": 645.8224
+  },
+  {
+    "building_name": "experimental media and performing arts center (empac)",
+    "lot_name": "west hall lot",
+    "distance": 346.516
+  },
+  {
+    "building_name": "experimental media and performing arts center (empac)",
+    "lot_name": "j lot",
+    "distance": 605.6475
+  },
+  {
+    "building_name": "experimental media and performing arts center (empac)",
+    "lot_name": "north lot",
+    "distance": 482.6339
+  },
+  {
+    "building_name": "warren hall",
+    "lot_name": "academy hall lot",
+    "distance": 341.1639
+  },
+  {
+    "building_name": "warren hall",
+    "lot_name": "as&rc lot",
+    "distance": 80.8939
+  },
+  { "building_name": "warren hall", "lot_name": "g lot", "distance": 67.887 },
+  { "building_name": "warren hall", "lot_name": "j lot", "distance": 645.646 },
+  {
+    "building_name": "warren hall",
+    "lot_name": "north lot",
+    "distance": 582.5135
+  },
+  {
+    "building_name": "warren hall",
+    "lot_name": "sherry road lot",
+    "distance": 266.9591
+  },
+  {
+    "building_name": "warren hall",
+    "lot_name": "admissions visitors lot",
+    "distance": 323.2905
+  }
+]
