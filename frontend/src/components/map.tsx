@@ -80,6 +80,19 @@ function ParkingMap() {
     fetchParkingSpots();
   }, []);
 
+  function updateData(spot: any) {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/lot/${spot.backendId}`, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        setLotData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching lot data:', error);
+      });
+  }
+
   const handleSubmission = (num : string, backendId: string) => {
     setIsSubmitted(true);
     setlotFUCK(num);
@@ -105,17 +118,6 @@ function ParkingMap() {
       .map(tag => <span key={tag}>{tag}: {spot.tags[tag]}<br /></span>);
   
     const title = spot.tags.name ? `${spot.tags.name}` : 'Parking Spot';
-
-    // fetch(`${process.env.REACT_APP_SERVER_URL}/lot/${spot.backendId}`, {
-    //   method: 'GET',
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     setLotData(data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching lot data:', error);
-    //   });
 
     return (
       <>
@@ -285,6 +287,9 @@ function ParkingMap() {
               pathOptions={{ color: 'blue' }}
               key={spot.id}
               positions={spot.geometry.map((point : any) => [point.lat, point.lon])}
+              eventHandlers={{
+                click: () => updateData(spot),
+              }}
             >
               <Popup>{getParkingTags(spot)}</Popup>
             </Polygon>
