@@ -1,305 +1,103 @@
 from django.core.management.base import BaseCommand
 
-from park_smart_analytics.models import Lots
+from park_smart_analytics.models import (
+    Lots,
+    Buildings,
+    BuildingLotDistance,
+    LotLotDistance,
+)
+import os
+import json
 
 
 class Command(BaseCommand):
     help = "Add initial data to the Lots table"
 
-    def handle(self, *args, **kwargs):
-        # Check if data already exists to prevent duplicate entries
-        if Lots.objects.exists():
+    def add_arguments(self, parser):
+        # Add a folder argument to specify the path to the folder
+        parser.add_argument(
+            "folder", type=str, help="The path to the folder containing JSON files"
+        )
+
+    def handle(self, *args, **options):
+        folder_path = options["folder"]
+
+        if not os.path.isdir(folder_path):
             self.stdout.write(
-                self.style.WARNING("Data already exists. Exiting script.")
+                self.style.ERROR(f"{folder_path} is not a valid directory")
             )
             return
 
-        # Add data to the database
-        lots_data = [
-            {
-                "name": "North Lot",
-                "total": 200,
-                "available": 200,
-                "electrified": 10,
-                "electrified_available": 0,
-                "handicap": 5,
-                "handicap_available": 5,
-            },
-            {
-                "name": "Academy Hall Lot",
-                "total": 100,
-                "available": 100,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "Mueller Center Public Lot",
-                "total": 50,
-                "available": 35,
-                "electrified": 10,
-                "electrified_available": 0,
-                "handicap": 6,
-                "handicap_available": 6,
-            },
-            {
-                "name": "Mueller Center Gated Lot",
-                "total": 30,
-                "available": 30,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Union Short Term Lot",
-                "total": 6,
-                "available": 6,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 1,
-                "handicap_available": 1,
-            },
-            {
-                "name": "Union Lot",
-                "total": 15,
-                "available": 15,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "AS&RC Lot",
-                "total": 20,
-                "available": 20,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Commons Lot",
-                "total": 40,
-                "available": 40,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "Parking Structure",
-                "total": 200,
-                "available": 200,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 5,
-                "handicap_available": 5,
-            },
-            {
-                "name": "Front Academy Lot",
-                "total": 15,
-                "available": 15,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Admissions Lot",
-                "total": 15,
-                "available": 15,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "Alumni House Lot",
-                "total": 20,
-                "available": 20,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "H Building Lot",
-                "total": 10,
-                "available": 10,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 1,
-                "handicap_available": 1,
-            },
-            {
-                "name": "J Building Lot",
-                "total": 30,
-                "available": 30,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Clubhouse Lot",
-                "total": 3,
-                "available": 3,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 3,
-                "handicap_available": 3,
-            },
-            {
-                "name": "Blitman Lot",
-                "total": 100,
-                "available": 100,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "RAHPs A Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "RAHPs B Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Stackwyck Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Brickwyck Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "West Hall Lot",
-                "total": 60,
-                "available": 60,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "Winslow Lot",
-                "total": 30,
-                "available": 30,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-            {
-                "name": "Nason Hall Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 4,
-                "handicap_available": 4,
-            },
-            {
-                "name": "Bray Hall Lot",
-                "total": 30,
-                "available": 30,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Nugent Lot",
-                "total": 30,
-                "available": 30,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Sharp Lot",
-                "total": 40,
-                "available": 40,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "BARH Lot",
-                "total": 110,
-                "available": 110,
-                "electrified": 4,
-                "electrified_available": 4,
-                "handicap": 3,
-                "handicap_available": 3,
-            },
-            {
-                "name": "Field House Lot",
-                "total": 45,
-                "available": 45,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Lower ECAV Lot",
-                "total": 60,
-                "available": 60,
-                "electrified": 10,
-                "electrified_available": 0,
-                "handicap": 5,
-                "handicap_available": 5,
-            },
-            {
-                "name": "Upper ECAV Lot",
-                "total": 50,
-                "available": 50,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 0,
-                "handicap_available": 0,
-            },
-            {
-                "name": "Renwyck Lot",
-                "total": 10,
-                "available": 10,
-                "electrified": 0,
-                "electrified_available": 0,
-                "handicap": 2,
-                "handicap_available": 2,
-            },
-        ]
+        # Check if data already exists to prevent duplicate entries
+        if not Lots.objects.exists():
 
-        for lot_data in lots_data:
-            lot, created = Lots.objects.get_or_create(**lot_data)
-            if created:
-                self.stdout.write(self.style.SUCCESS(f"Added {lot}"))
+            with open(os.path.join(folder_path, "lot_data.json")) as f:
+                lots_data = json.load(f)
+
+            for lot_data in lots_data:
+                _, created = Lots.objects.get_or_create(**lot_data)
+                if created:
+                    self.stdout.write(self.style.SUCCESS(f"Added {lot_data["name"]}"))
+
+        if not Buildings.objects.exists():
+            with open(os.path.join(folder_path, "buildings.json")) as f:
+                buildings_data = json.load(f)
+
+            for building_data in buildings_data:
+                _, created = Buildings.objects.get_or_create(
+                    name=building_data["name"].title()
+                )
+                if created:
+                    self.stdout.write(
+                        self.style.SUCCESS(f"Added {building_data["name"].title()}")
+                    )
+
+        if not BuildingLotDistance.objects.exists():
+            with open(os.path.join(folder_path, "building_lot_distances.json")) as f:
+                building_lot_distance_data = json.load(f)
+
+            for distance_data in building_lot_distance_data:
+                try:
+                    lot = None
+                    if distance_data["lot_name"] == "as&rc lot":
+                        lot = Lots.objects.get(name="AS&RC Lot")
+                    else:
+                        lot = Lots.objects.get(name=distance_data["lot_name"].title())
+                    building = Buildings.objects.get(
+                        name=distance_data["building_name"].title()
+                    )
+
+                    building_lot_distance, created = (
+                        BuildingLotDistance.objects.get_or_create(
+                            building=building,
+                            lot=lot,
+                            distance=distance_data["distance"],
+                        )
+                    )
+                    if created:
+                        self.stdout.write(
+                            self.style.SUCCESS(f"Added {building_lot_distance}")
+                        )
+                except Lots.DoesNotExist:
+                    continue
+
+        if not LotLotDistance.objects.exists():
+            with open(os.path.join(folder_path, "lot_lot_distances.json")) as f:
+                lot_lot_distance_data = json.load(f)
+
+            for distance_data in lot_lot_distance_data:
+                try:
+                    lot1 = Lots.objects.get(name=distance_data["lot1"].title())
+                    lot2 = Lots.objects.get(name=distance_data["lot2"].title())
+                    lot_lot_distance, created = LotLotDistance.objects.get_or_create(
+                        lot1=lot1, lot2=lot2, distance=distance_data["distance"]
+                    )
+
+                    if created:
+                        self.stdout.write(
+                            self.style.SUCCESS(f"Added {lot_lot_distance}")
+                        )
+                except Lots.DoesNotExist:
+                    continue
 
         self.stdout.write(self.style.SUCCESS("Initial data added successfully"))
