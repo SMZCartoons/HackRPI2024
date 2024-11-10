@@ -134,7 +134,7 @@ function ParkingMap() {
 
   //get location data from backend, change endpoints later
   useEffect(() => {
-    fetch(process.env.SERVER_URL + '/lots', {
+    fetch(process.env.REACT_APP_SERVER_URL + '/lots', {
       "method": "GET",
     })
       .then(response => response.json())
@@ -142,7 +142,7 @@ function ParkingMap() {
         setLots(data);
       });
 
-    fetch(process.env.SERVER_URL + '/buildings', {
+    fetch(process.env.REACT_APP_SERVER_URL + '/buildings', {
       "method": "GET",
     })
       .then(response => response.json())
