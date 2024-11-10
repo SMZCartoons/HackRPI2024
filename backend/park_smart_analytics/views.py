@@ -8,7 +8,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Lots
 from .serializers import (
     LeaderBoardSerializer,
     LotSerializer,
@@ -43,14 +42,14 @@ class LoginView(APIView):
 
 
 class LotView(APIView):
-    def get(self, _, lot_id) -> Response:
+    def get(self, request, lot_id) -> Response:
         lot = get_object_or_404(Lots, lot_id=lot_id)
         serializer = LotSerializer(lot)
         return Response(serializer.data)
 
 
 class LotsView(APIView):
-    def get(self, _) -> Response:
+    def get(self, request) -> Response:
         lots = Lots.objects.all()
         serializer = LotsSerializer(lots, many=True)
         return Response(serializer.data)

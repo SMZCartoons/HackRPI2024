@@ -29,14 +29,14 @@ urlpatterns = [
     path("refresh", TokenRefreshView.as_view(), name="token_refresh"),
     path("lot/<str:lot_id>", views.LotView.as_view(), name="lot_information"),
     path(
-        "lot/closest/<str:lot_id>",
+        "lot/closest/current/<str:lot_id>",
         views.ClosestCurrentLotLot.as_view(),
         name="nearest_lot_to_lot_with_availability",
     ),
     path("lots", views.LotsView.as_view(), name="lots_information"),
     path("buildings", views.BuildingsView.as_view(), name="buildings_information"),
     path(
-        "building/closest/<str:building_id>",
+        "building/closest/current/<str:building_id>",
         views.ClosestCurrentLotBuilding.as_view(),
         name="nearest_lot_to_building_with_availability",
     ),
