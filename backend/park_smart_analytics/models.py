@@ -1,9 +1,9 @@
-from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
+from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
@@ -33,6 +33,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     year = models.IntegerField()
     car_length = models.FloatField()
     electrified = models.BooleanField()
+    checked_in = models.BooleanField(default=False)
+    checked_in_electric = models.BooleanField(default=False)
+    checked_in_disability = models.BooleanField(default=False)
+    points = models.IntegerField(default=0)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

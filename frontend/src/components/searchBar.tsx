@@ -3,7 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 function SearchBar() {
   const [isLot, setIsLot] = useState(true);
@@ -35,13 +35,13 @@ function SearchBar() {
         setLots(data);
       });
 
-      fetch(process.env.SERVER_URL + '/buildings', {
-        "method": "GET",
-      })
-        .then(response => response.json())
-        .then(data => {
-          setBuildings(data);
-        });
+    fetch(process.env.SERVER_URL + '/buildings', {
+      "method": "GET",
+    })
+      .then(response => response.json())
+      .then(data => {
+        setBuildings(data);
+      });
 
   }, []);
 
@@ -62,17 +62,24 @@ function SearchBar() {
     setSelectedTime(e.target.value);
   }
 
-  //submit id of location and the time to get 
+  //submit id of location and the time to get stats on lots and/or buildings
   const handleSubmit = (e : any) => {
     e.preventDefault();
 
+    fetch(process.env.SERVER_URL + '/' + (isLot ? 'lotinfo' : 'buildinginfo') + '/' + selectedLoc.id + '/' + selectedTime, {
+      "method": "GET",
+    })
+      .then(response => response.json())
+      .then(data => {
+        //figure out how to get data to stats component here
+
+      });
   }
 
   return (
     <div className="searchbar">
       <div className="inside-searchbar">
         <Row>
-          {/* <Col md="3"> */}
           <Dropdown autoClose="outside" style={{height: "20px"}}>
             <Dropdown.Toggle id="location-dropdown">
               {selectedLoc.name}
@@ -97,20 +104,15 @@ function SearchBar() {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          {/* </Col> */}
 
-          {/* <Col md="3"> */}
-          <Form.Select aria-label="Time selection" defaultValue={} onChange={(e: any) => handleChangeTime(e)}>
-            <option>Time</option>
+          <Form.Select aria-label="Time selection" defaultValue={dateObj.getHours()%12 + ":" + dateObj.getMinutes() + ""} onChange={(e: any) => handleChangeTime(e)}>
+            <option>{(dateObj.getHours() === 12 ? 12 : dateObj.getHours()%12) + ":" + (dateObj.getMinutes() < 10 ? '0' + dateObj.getMinutes() : dateObj.getMinutes()) + (dateObj.getHours() <11 ? 'am' : 'pm')}</option>
             {timeChoices.map((time) => (
               <option value={`${time}`}>{time}</option>
             ))}
           </Form.Select>
-          {/* </Col> */}
             
-          {/* <Col md="3"> */}
             <Button type="submit" onClick={(e) => handleSubmit(e)}>Submit</Button>
-          {/* </Col> */}
         </Row>
       </div>
     </div>
