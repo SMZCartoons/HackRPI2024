@@ -1,5 +1,5 @@
 *.pyc
 *.DS_Store
 backend/db
-
 .env
+frontend/package-lock.json
