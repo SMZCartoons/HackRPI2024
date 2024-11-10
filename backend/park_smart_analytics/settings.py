@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "park_smart_analytics",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "park_smart_analytics.urls"
@@ -137,3 +139,5 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=7),  # Set token lifetime to 7 days
     "REFRESH_TOKEN_LIFETIME": timedelta(days=30),  # Optional refresh token lifetime
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
