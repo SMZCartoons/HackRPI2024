@@ -4,9 +4,10 @@ import Modal from 'react-bootstrap/Modal';
 
 interface CheckOutProps {
     onSubmit: () => void;
+    id: string;
 }
 
-const CheckOut: React.FC<CheckOutProps> = ({ onSubmit }) => {
+const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, id }) => {
     const [leftParkingLot, setLeftParkingLot] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -15,7 +16,7 @@ const CheckOut: React.FC<CheckOutProps> = ({ onSubmit }) => {
             leftParkingLot,
         };
         try {
-            const response = await fetch(process.env.SERVER_URL + '/buildings', {
+            const response = await fetch(process.env.SERVER_URL + '/checkout/' + id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

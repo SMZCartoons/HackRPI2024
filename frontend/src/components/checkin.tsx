@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 interface CheckInProps {
-    onSubmit: () => void;
+    onSubmit: (arg0:string) => void;
+    id: string;
 }
 
-const CheckIn: React.FC<CheckInProps> = ({onSubmit}) => {
+const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
     const [handicapSpot, setHandicapSpot] = useState(false);
     const [usedCharger, setUsedCharger] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -17,14 +18,14 @@ const CheckIn: React.FC<CheckInProps> = ({onSubmit}) => {
             usedCharger,
         };
         try {
-            const response = await fetch(process.env.SERVER_URL + '/buildings', {
+            const response = await fetch(process.env.SERVER_URL + '/checkin/' + id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => {onSubmit(); return response;})
+            .then(response => {onSubmit(id); return response;})
             .catch(error => {alert('An error occurred.');});
         } catch (error) {
             alert('An error occurred.');

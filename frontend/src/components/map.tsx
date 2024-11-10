@@ -36,6 +36,7 @@ function ParkingMap() {
   const [parkingSpots, setParkingSpots] = useState([]);
   const [showCheckIn, setShowCheckIn] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [lotID, setLotID] = useState("-1");
 
   const coordinates = {
     latitude: 42.730026,
@@ -65,12 +66,14 @@ function ParkingMap() {
     fetchParkingSpots();
   }, []);
 
-  const handleSubmission = () => {
+  const handleSubmission = (num : string) => {
     setIsSubmitted(true);
+    setLotID(num);
   };
 
   const handleSubmissionOut = () => {
     setIsSubmitted(false);
+    setLotID("-1");
   };
 
   function getParkingTags(spot: any): JSX.Element {
@@ -91,7 +94,7 @@ function ParkingMap() {
       <>
         <strong>{title}</strong><br />
         {validTags}
-        {!isSubmitted && <CheckIn onSubmit={handleSubmission}/>}
+        {!isSubmitted && <CheckIn onSubmit={handleSubmission} id={spot.id}/>}
       </>
     );
   }
@@ -114,7 +117,7 @@ function ParkingMap() {
   const [selectedTime, setSelectedTime] = useState(0)
   const [lots, setLots] = useState([{id: null, name: null}]);
   const [buildings, setBuildings] = useState([{id: null, name: null}]);
-  const [lotID, setLotID] = useState(-1);
+  
 
   var timeChoices = []
   for(var i = 0; i < 24; i++) {
@@ -223,7 +226,7 @@ function ParkingMap() {
           </Row>
         </div>
       </div>
-      {isSubmitted && <CheckOut onSubmit={handleSubmissionOut}/>}
+      {isSubmitted && <CheckOut onSubmit={handleSubmissionOut} id={lotID}/>}
       {/* <MapContainer style={{ height: "578px", width: "390px" }} center={[42.730026,-73.680037]} zoom={15} scrollWheelZoom={true}> */}
       <MapContainer center={[coordinates.latitude,coordinates.longitude]} zoom={15} scrollWheelZoom={true}>
         <TileLayer
