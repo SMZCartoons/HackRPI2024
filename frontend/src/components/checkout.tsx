@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 interface CheckOutProps {
-    onSubmit: () => void;
+    onSubmit: (arg0:string) => void;
     Fuckername: string;
     backendId: string;
 }
@@ -25,7 +25,7 @@ const CheckOut: React.FC<CheckOutProps> = ({ onSubmit, Fuckername, backendId }) 
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => {onSubmit(); return response;})
+            .then(response => {onSubmit(backendId); return response;})
             .catch(error => {alert('An error occurred.');});
         } catch (error) {
             alert('An error occurred.');

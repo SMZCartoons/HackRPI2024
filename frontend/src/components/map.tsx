@@ -93,16 +93,31 @@ function ParkingMap() {
       });
   }
 
+  function updateDataId(backendId: any) {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/lot/${backendId}`, {
+    method: 'GET',
+    })
+    .then(response => response.json())
+    .then(data => {
+      setLotData(data);
+    })
+    .catch(error => {
+      console.error('Error fetching lot data:', error);
+    });
+  }
+
   const handleSubmission = (num : string, backendId: string) => {
     setIsSubmitted(true);
     setlotFUCK(num);
     setlotFUCKID(backendId);
+    updateDataId(backendId);
   };
 
-  const handleSubmissionOut = () => {
+  const handleSubmissionOut = (backendId: string) => {
     setIsSubmitted(false);
     setlotFUCK("-1");
     setlotFUCKID("-1");
+    updateDataId(backendId);
   };
 
   // const [clickedOnMap, setClickedOnMap] = useState(null);
