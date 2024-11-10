@@ -18,7 +18,7 @@ const CheckIn: React.FC<CheckInProps> = ({onSubmit, id}) => {
             usedCharger,
         };
         try {
-            const response = await fetch(process.env.SERVER_URL + '/checkin/' + id, {
+            const response = await fetch(process.env.REACT_APP_SERVER_URL + '/checkin/' + id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -27,7 +27,7 @@ function SearchBar() {
 
   //get location data from backend, change endpoints later
   useEffect(() => {
-    fetch(process.env.SERVER_URL + '/lots', {
+    fetch(process.env.REACT_APP_SERVER_URL + '/lots', {
       "method": "GET",
     })
       .then(response => response.json())
@@ -35,7 +35,7 @@ function SearchBar() {
         setLots(data);
       });
 
-    fetch(process.env.SERVER_URL + '/buildings', {
+    fetch(process.env.REACT_APP_SERVER_URL + '/buildings', {
       "method": "GET",
     })
       .then(response => response.json())
@@ -66,7 +66,7 @@ function SearchBar() {
   const handleSubmit = (e : any) => {
     e.preventDefault();
 
-    fetch(process.env.SERVER_URL + '/' + (isLot ? 'lotinfo' : 'buildinginfo') + '/' + selectedLoc.id + '/' + selectedTime, {
+    fetch(process.env.REACT_APP_SERVER_URL + '/' + (isLot ? 'lotinfo' : 'buildinginfo') + '/' + selectedLoc.id + '/' + selectedTime, {
       "method": "GET",
     })
       .then(response => response.json())

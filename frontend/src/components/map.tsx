@@ -173,7 +173,7 @@ function ParkingMap() {
   const handleSubmit = (e : any) => {
     e.preventDefault();
 
-    fetch(process.env.SERVER_URL + '/' + (isLot ? 'lotinfo' : 'buildinginfo') + '/' + selectedLoc.id + '/' + selectedTime, {
+    fetch(process.env.REACT_APP_SERVER_URL + '/' + (isLot ? 'lotinfo' : 'buildinginfo') + '/' + selectedLoc.id + '/' + selectedTime, {
       "method": "GET",
     })
       .then(response => response.json())
