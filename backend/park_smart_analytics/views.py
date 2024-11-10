@@ -7,6 +7,8 @@ from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import pickle
+import json
 
 from .serializers import (
     LeaderBoardSerializer,
@@ -157,3 +159,56 @@ class LeaderBoard(APIView):
             serialized_data.append(current_user_data)
 
         return Response(serialized_data)
+
+class Prediction(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request) -> Response:
+        with open('park_smart_analytics\\total_spots_model.pkl', 'rb') as f:
+            total_spots = pickle.load(f)
+
+        with open('park_smart_analytics\\handi_spots_model.pkl', 'rb') as f:
+            handi_spots = pickle.load(f)
+
+        with open('park_smart_analytics\\electric_spots_model.pkl', 'rb') as f:
+            electric_spots = pickle.load(f)
+        data = request.data  
+        req_time = str()
+        if data:
+            req_time = data.get('time', str())
+
+        req_min = int(req_time.strip()[2:])
+        req_time = int(req_time.strip()[0])
+        if req_min>=30: req_time = (req_time+1) % 24
+        
+        print(req_time)
+
+        
+        # is_electric = False
+        # is_disability = False
+        # if data:
+        #     is_disability = data.get("disability", False)
+        #     is_electric = data.get("electric", False)
+        
+        
+
+        # get request data, with the time, 
+        
+
+        # users = User.objects.all().order_by("-points")[:20]
+        # user = request.user
+
+        # serializer = LeaderBoardSerializer(
+        #     users, many=True, context={"queryset": users}
+        # )
+
+        # serialized_data = list(serializer.data)
+
+        # if user not in users:
+        #     user_rank = users.filter(points__gt=user.points).count() + 1
+        #     current_user_data = LeaderBoardSerializer(
+        #         user, context={"rank": user_rank}
+        #     ).data
+        #     serialized_data.append(current_user_data)
+
+        return Response(None)
