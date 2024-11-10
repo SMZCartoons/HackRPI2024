@@ -27,7 +27,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         validated_data["car_length"] = 0.0
         validated_data["electrified"] = False
         try:
-            car_query = f"https://www.carqueryapi.com/api/0.3/?cmd=getTrims&year={validated_data["year"]}&make={validated_data["make"]}&model={validated_data["model"]}"
+            car_query = f"https://www.carqueryapi.com/api/0.3/?cmd=getTrims&year={validated_data['year']}&make={validated_data['make']}&model={validated_data['model']}"
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
             }
